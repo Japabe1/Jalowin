@@ -1,0 +1,41 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment configuration
+.env
+*.env
+
+# PHP dependencies (if using Composer)
+vendor/
+composer.lock
+
+# Logs and cache
+logs/
+*.log
+cache/
+tmp/
+
+# PHP sessions
+sess_*
+
+# File uploads
+uploads/
+*.tmp
+
+# Backup and temporary files
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
+
+# IDEs and editors
+.vscode/
+.idea/
+*.iml
+
+# Front-end dependencies (if using npm or yarn)
+node_modules/
+package-lock.json
+yarn.lock
