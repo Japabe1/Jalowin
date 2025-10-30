@@ -1,5 +1,5 @@
 <?php
-require_once 'funciones.php';
+require_once './src/php/funciones.php';
 if(isLoggedIn()){
     header('Location: home.php');
     exit();
@@ -26,6 +26,20 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <title>Document</title>
 </head>
 <body>
+    <h1>Iniciar Sesión</h1>
+    <?php if($error): ?>
+        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+    <?php endif; ?>
+    <form method="POST" action="">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    
     
     
 </body>
