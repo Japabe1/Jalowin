@@ -1,5 +1,5 @@
 <?php
-require_once 'funciones.php';
+require_once './src/php/funciones.php';
 if(isLoggedIn()){
     header('Location: home.php');
     exit();
