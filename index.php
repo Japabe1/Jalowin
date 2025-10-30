@@ -1,32 +1,56 @@
 <?php
-require_once 'funciones.php';
-if(isLoggedIn()){
-    header('Location: home.php');
-    exit();
-}
-$error='';
-if($_SERVER['REQUEST_METHOD']=='POST'){
-    $username=$_POST['username']??'';
-    $password=$_POST['password']??'';
+session_start();
+require_once "./src/php/funciones.php";  // incluye tu archivo con verifyLogin()
 
-    if (verifyLogin($username,$password)){
-        header('Location: home.php');
-        exit();
-    }else {
-        $error='Usuario o contraseña incorrecto';
+$message = "";  // mensaje para mostrar errores o éxito
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST["username"]);
+    $password = trim($_POST["password"]);
+
+    if (verifyLogin($username, $password)) {
+        header("Location: dashboard.php"); // página protegida
+        exit;
+    } else {
+        $message = "<div class='alert alert-danger'>Usuario o contraseña incorrectos.</div>";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    
-    
+
+<body class="bg-light d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+    <div class="card shadow p-4" style="width: 350px;">
+        <h4 class="text-center mb-4">Iniciar Sesión</h4>
+
+        <?= $message ?> <!-- mensaje de error si falla -->
+
+        <form method="POST" action="">
+            <div class="mb-3">
+                <label class="form-label">Usuario</label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
