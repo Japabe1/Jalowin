@@ -1,0 +1,8 @@
+.flip-container { perspective: 1000px; }
+.flip-card { width: 350px; transition: transform .6s; transform-style: preserve-3d; }
+.flip-card.active { transform: rotateY(180deg); }
+.card-face { backface-visibility: hidden; position: absolute; width: 100%; }
+.card-back { transform: rotateY(180deg); }
+.shadow-warning {
+    box-shadow: 0 0 200px rgba(255,193,7,0.8); 
+}
