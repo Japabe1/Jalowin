@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "./src/php/funciones.php";  
+require_once "./funciones.php";  
 
 $message = "";  
 
