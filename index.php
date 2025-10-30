@@ -1,15 +1,15 @@
 <?php
 session_start();
-require_once "./src/php/funciones.php";  // incluye tu archivo con verifyLogin()
+require_once "./src/php/funciones.php";  
 
-$message = "";  // mensaje para mostrar errores o éxito
+$message = "";  
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
 
     if (verifyLogin($username, $password)) {
-        header("Location: dashboard.php"); // página protegida
+        header("Location: dashboard.php");
         exit;
     } else {
         $message = "<div class='alert alert-danger'>Usuario o contraseña incorrectos.</div>";
@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -32,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="card shadow p-4" style="width: 350px;">
         <h4 class="text-center mb-4">Iniciar Sesión</h4>
 
-        <?= $message ?> <!-- mensaje de error si falla -->
+        <?= $message ?> 
 
         <form method="POST" action="">
             <div class="mb-3">
@@ -49,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
