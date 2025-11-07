@@ -12,7 +12,7 @@ define('DB_NAME', 'halloween_db');
 
 // Function to connect to database
 function connectDB() {
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $conn = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
