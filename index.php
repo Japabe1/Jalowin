@@ -42,7 +42,7 @@ if (isset($_POST['irALogin'])) {
 
 <section id="inicio"
     class="d-flex justify-content-center align-items-center text-center text-warning"
-    style="height:100vh; background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93'); background-size:cover; background-position:center; background-attachment:fixed;">
+    style="height:100vh; background-image:url('https://images.unsplash.com/photo-1508361001413-7a9dca21d08a?auto=format&fit=crop&w=1920&q=80'); background-size:cover; background-position:center; background-attachment:fixed;">
     <div>
         <h1 class="display-1 fw-bold">HALLOWEEN 🎃</h1>
         <p class="fs-3 mb-4">La noche del terror ha comenzado...</p>
