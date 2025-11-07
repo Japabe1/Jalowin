@@ -52,8 +52,8 @@
 
                     <div class="col-md-7 fade-in">
                         <div class="card p-4 text-center text-light" onclick="location.href='juego1.php'">
-                            <h2>Run Wizard Run</h2>
-                            <img src="https://thumbs.dreamstime.com/b/asistente-de-halloween-con-calabazas-ia-generativa-un-alegre-mago-una-bata-azul-y-sombrero-rodeado-murci%C3%A9lagos-tallados-384020409.jpg" alt="Juego 1" class="img-fluid mb-3" style="width:100%; height:100%; object-fit:cover;" />
+                            <h2>Pumpk Wizard </h2>
+                            <img src="https://thumbs.dreamstime.com/b/asistente-de-halloween-con-calabazas-ia-generativa-un-alegre-mago-una-bata-azul-y-sombrero-rodeado-murci%C3%A9lagos-tallados-384020409.jpg" alt="Juego 1" class="img-fluid mb-3" style="width:100%; height:80%; object-fit:cover;" />
                             <p>Atrapalas todas.</p>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                     <div class="col-md-7 fade-in" style="animation-delay: .3s;"onclick="location.href='juego2.php'">
                         <div class="card p-4 text-center text-light">
                             <h2>Pumpkin Man</h2>
-                            <img src="https://i.etsystatic.com/60592802/r/il/fff2f0/7236398949/il_fullxfull.7236398949_3o62.jpg" alt="Juego 2" class="img-fluid mb-3" style="width:100%; height:100%; object-fit:cover;" />
+                            <img src="https://i.etsystatic.com/60592802/r/il/fff2f0/7236398949/il_fullxfull.7236398949_3o62.jpg" alt="Juego 2" class="img-fluid mb-3" style="width:100%; height:80%; object-fit:cover;" />
                             <p>Eat pumpkins and dodge the ghosts!</p>
                         </div>
                     </div>
