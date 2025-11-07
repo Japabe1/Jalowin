@@ -40,4 +40,17 @@ function verifyLogin($username, $password) {
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
 }
+
+// Funcion para crear usuarios
+function createUser($username, $password) {
+    $conn = connectDB();
+    $username = $conn->real_escape_string($username);
+    $password = hash('sha256', $password); // Hash the password
+
+    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+    if ($conn->query($sql) === TRUE) {
+        return true;
+    }
+    return false;
+}
 ?>
