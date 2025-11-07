@@ -12,7 +12,7 @@ define('DB_NAME', 'halloween_db');
 
 // Function to connect to database
 function connectDB() {
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $conn = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -39,5 +39,18 @@ function verifyLogin($username, $password) {
 // Function to check if user is logged in
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
+}
+
+// Funcion para crear usuarios
+function createUser($username, $password) {
+    $conn = connectDB();
+    $username = $conn->real_escape_string($username);
+    $password = hash('sha256', $password); // Hash the password
+
+    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+    if ($conn->query($sql) === TRUE) {
+        return true;
+    }
+    return false;
 }
 ?>
