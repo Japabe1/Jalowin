@@ -4,6 +4,7 @@ require_once "./funciones.php";
 
 $message = "";  
 
+// LOGIN
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
@@ -12,14 +13,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         header("Location: ../../home.php");
         exit;
     } else {
-        $message = "<div class='alert alert-danger'>Usuario o contraseña incorrectos.</div>";
+        $message = "<div class='alert alert-danger text-center'>Usuario o contraseña incorrectos.</div>";
     }
 }
 
+// REGISTRO
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
     $newUser = trim($_POST["new_username"]);
     $newPass = trim($_POST["new_password"]);
-    $message = "<div class='alert alert-success'>Registro exitoso, ahora puedes iniciar sesión.</div>";
+
+    if (createUser($newUser, $newPass)) {
+        $message = "<div class='alert alert-success text-center'>Usuario creado correctamente. Ahora puedes iniciar sesión.</div>";
+    } else {
+        $message = "<div class='alert alert-danger text-center'>Error al crear el usuario. Inténtalo de nuevo.</div>";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -30,14 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
 <title>Login / Registro</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/style/login.css">
-
 </head>
 
-<body class="bg-dark d-flex justify-content-center align-items-center " style="height: 100vh;">
+<body class="bg-dark d-flex justify-content-center align-items-center" style="height: 100vh;">
 
 <div class="flip-container">
     <div class="flip-card position-relative">
 
+        <!-- FORMULARIO LOGIN -->
         <div class="card card-face shadow-warning p-4">
             <h4 class="text-center mb-4">Iniciar Sesión</h4>
 
@@ -64,10 +71,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
             </div>
         </div>
 
+        <!-- FORMULARIO REGISTRO -->
         <div class="card card-face card-back shadow p-4">
             <h4 class="text-center mb-4">Registrarse</h4>
-        <!-- formulario crear usuario -->
-            <form method="POST" action ="./funciones.php">
+
+            <form method="POST">
                 <input type="hidden" name="register">
 
                 <div class="mb-3">
@@ -90,8 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
 
     </div>
 </div>
-
-
 
 <script src="../../assets/script/login.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
