@@ -1,3 +1,4 @@
+
 <?php
 
 ?>
@@ -7,9 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Halloween - Atrapa Calabazas</title>
-    <link rel="stylesheet" href="./src/style/style.css">
+    <link rel="stylesheet" href="./assets/style/style.css">
 </head>
-<body>
+<body class = "body-game1">
      <div id="gameContainer">
         <div id="gameInfo">
             <div>🎃 Puntos: <span id="score">0</span></div>
@@ -24,13 +25,14 @@
             <button id="restartBtn">Jugar de Nuevo</button>
         </div>
         <div id="jumpscare"></div>
-
-        <div id="instructions">
+    </div>
+    <div id="instructions">
             Usa las flechas ← → o mueve el ratón para mover al mago
-        </div>
+    </div>
+    <div id="volver-home">
+    <a href="home.php" class="home-btn">🏠 Volver al Inicio</a>
     </div>
     <audio id="screamSound" src="https://www.soundjay.com/human/scream-01.mp3" preload="auto"></audio>
-    <script src = "./src/js/halloween.js"></script>
+    <script src = "./assets/script/halloween.js"></script>
 </body>
 </html>
-<?php
