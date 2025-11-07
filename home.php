@@ -95,7 +95,7 @@
             height: 550px;
         }
 
-            ..ghost {
+            .ghost {
             position: fixed;
             width: 120px;
             height: 120px;

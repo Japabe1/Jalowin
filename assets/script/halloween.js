@@ -280,47 +280,39 @@ function update() {
 /**
  * Finalizar el juego - YA IMPLEMENTADO
  */
- const screamSound = document.getElementById('screamSound');
-
-  // Función para "unlock" del audio: reproducir, esperar, pausar y resetear
-  async function unlockAudioOnce() {
-    try {
-      await screamSound.play();        // intenta reproducir (requiere interacción)
-      screamSound.pause();             // pausa cuando ya está desbloqueado
-      screamSound.currentTime = 0;     // resetear al inicio
-      // opcional: console.log('Audio desbloqueado');
-    } catch (err) {
-      // si falla, lo registramos (no interrumpimos)
-      console.warn('No se pudo desbloquear el audio:', err);
-    }
-  }
-
-  // Escuchar interacción del usuario una sola vez. pointerdown cubre click/tap.
-  document.addEventListener('pointerdown', () => {
-    unlockAudioOnce();
-  }, { once: true, passive: true });
-
-  // Tu función endGame (igual que la tenías)
-  function endGame() {
+function endGame() {
     gameActive = false;
     clearInterval(spawnInterval);
     clearInterval(gameLoop);
-
+    
     finalScoreDisplay.textContent = score;
     gameOverScreen.style.display = 'block';
 
-    // Mostrar jumpscare
-    jumpscare.style.display = 'block';
-    // Intentar reproducir (ya deberia estar desbloqueado tras la interacción)
-    screamSound.play().catch(err => {
-      console.warn('play() en endGame falló:', err);
-      // aquí puedes mostrar alternativa visual o replay button
-    });
+    // Mostrar jumpscare y reproducir sonido (si fue desbloqueado)
+    if (jumpscare) jumpscare.style.display = 'block';
+    if (screamSound) {
+        screamSound.currentTime = 0;
+        screamSound.play().catch(() => {
+            // si falla la reproducción (sin interacción), no rompemos la app
+            console.warn('No se pudo reproducir el sonido del jumpscare (autoplay bloqueado).');
+        });
+    }
 
     setTimeout(() => {
-      jumpscare.style.display = 'none';
+        if (jumpscare) jumpscare.style.display = 'none';
     }, 1500);
-  }
+}
+
+// Intento de desbloquear audio con la primera interacción del usuario
+document.addEventListener("pointerdown", () => {
+    if (screamSound) {
+        screamSound.play().then(() => {
+            screamSound.pause();
+            screamSound.currentTime = 0;
+        }).catch(() => {});
+    }
+}, { once: true, passive: true });
+
 /**
  * Reiniciar el juego - USARÁ TU FUNCIÓN
  */
