@@ -66,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
 
         <div class="card card-face card-back shadow p-4">
             <h4 class="text-center mb-4">Registrarse</h4>
-
-            <form method="POST">
+        <!-- formulario crear usuario -->
+            <form method="POST" action ="./funciones.php">
                 <input type="hidden" name="register">
 
                 <div class="mb-3">

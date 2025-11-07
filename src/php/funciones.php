@@ -12,7 +12,7 @@ define('DB_NAME', 'halloween_db');
 
 // Function to connect to database
 function connectDB() {
-    $conn = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -52,5 +52,15 @@ function createUser($username, $password) {
         return true;
     }
     return false;
+}
+if (isset($_POST['register'])) {
+    $username = $_POST['new_username'];
+    $password = $_POST['new_password'];
+
+    if (createUser($username, $password)) {
+        echo "<script>alert('Usuario creado correctamente'); window.location.href='login.php';</script>";
+    } else {
+        echo "<script>alert('Error al crear el usuario'); window.location.href='register.php';</script>";
+    }
 }
 ?>
