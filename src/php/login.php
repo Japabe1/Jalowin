@@ -2,7 +2,8 @@
 session_start();
 require_once "./funciones.php";  
 
-$message = "";  
+$message_login = "";
+$message_register = "";
 
 // LOGIN
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
@@ -13,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         header("Location: ../../home.php");
         exit;
     } else {
-        $message = "<div class='alert alert-danger text-center'>Usuario o contraseña incorrectos.</div>";
+        $message_login = "<div class='alert alert-danger text-center'>Usuario o contraseña incorrectos.</div>";
     }
 }
 
@@ -23,9 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
     $newPass = trim($_POST["new_password"]);
 
     if (createUser($newUser, $newPass)) {
-        $message = "<div class='alert alert-success text-center'>Usuario creado correctamente. Ahora puedes iniciar sesión.</div>";
+        $message_register = "<div class='alert alert-success text-center'>Usuario creado correctamente. Ahora puedes iniciar sesión.</div>";
     } else {
-        $message = "<div class='alert alert-danger text-center'>Error al crear el usuario. Inténtalo de nuevo.</div>";
+        $message_register = "<div class='alert alert-danger text-center'>Error al crear el usuario. Inténtalo de nuevo.</div>";
     }
 }
 ?>
@@ -48,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
         <div class="card card-face shadow-warning p-4">
             <h4 class="text-center mb-4">Iniciar Sesión</h4>
 
-            <?= $message ?>
+            <?= $message_login ?>
 
             <form method="POST">
                 <input type="hidden" name="login">
@@ -74,6 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
         <!-- FORMULARIO REGISTRO -->
         <div class="card card-face card-back shadow p-4">
             <h4 class="text-center mb-4">Registrarse</h4>
+
+            <?= $message_register ?>
 
             <form method="POST">
                 <input type="hidden" name="register">

@@ -1,3 +1,4 @@
+
 <?php
 
 ?>
@@ -35,4 +36,3 @@
     <script src = "./assets/script/halloween.js"></script>
 </body>
 </html>
-<?php
