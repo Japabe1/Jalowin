@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $password = trim($_POST["password"]);
 
     if (verifyLogin($username, $password)) {
-        header("Location: dashboard.php");
+        header("Location: ../../index.php");
         exit;
     } else {
         $message = "<div class='alert alert-danger'>Usuario o contraseña incorrectos.</div>";
