@@ -45,16 +45,14 @@ function isLoggedIn() {
 function createUser($username, $password) {
     $conn = connectDB();
     $username = $conn->real_escape_string($username);
-    $password = hash('sha256', $password); // Hash the password
+    $password = hash('sha256', $password); 
 
-    // Check if user already exists
+ 
     $checkSql = "SELECT id FROM users WHERE username = '$username'";
     $checkResult = $conn->query($checkSql);
     if ($checkResult->num_rows > 0) {
-        return false; // User already exists
-    }
+        return false; 
 
-    // Insert new user
     $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
     if ($conn->query($sql) === TRUE) {
         return true;
