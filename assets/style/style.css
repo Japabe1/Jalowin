@@ -1,0 +1,164 @@
+.body-home {
+    background: url('https://img.freepik.com/fotos-premium/fondo-aterrador-espacio-copia_1179130-425193.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(10, 10, 10, 0.9);
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #b30000;
+    margin-bottom: 20px;
+}
+
+.nav-link {
+    color: #fff !important;
+    margin-bottom: 10px;
+}
+
+h1.bloody-text {
+    font-size: 60px;
+    font-family: 'Creepster', cursive;
+    text-align: center;
+    color: red;
+    text-shadow: 4px 4px 6px #000;
+    position: relative;
+}
+
+h1.bloody-text::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 20px;
+    background: red;
+    filter: blur(6px);
+    bottom: -10px;
+}
+
+.card {
+    background-color: rgba(25, 25, 25, 0.92);
+    border: 3px solid crimson;
+    transition: transform .3s;
+    height: 450px;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+.content-wrapper {
+    margin-left: 280px;
+    padding: 40px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1s forwards;
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0px); }
+}
+.parallax-section {
+    
+    background-size: cover;
+}
+
+.card {
+    height: 550px;
+}
+
+.ghost {
+position: fixed;
+width: 120px;
+height: 120px;
+background: url('https://pngimg.com/d/ghost_PNG52.png') no-repeat center center/contain;
+opacity: 0.6;
+animation: floatGhost 12s linear infinite;
+pointer-events: none;
+z-index: 1000;
+}
+
+.ghost1 { top: 20%; left: -150px; animation-delay: 0s; }
+.ghost2 { top: 60%; left: -200px; animation-delay: 4s; }
+.ghost3 { top: 35%; left: -180px; animation-delay: 8s; }
+
+@keyframes floatGhost {
+    0% { transform: translateX(0) translateY(0); opacity: 0.2; }
+    25% { opacity: 0.7; transform: translateX(40vw) translateY(-20px); }
+    50% { transform: translateX(70vw) translateY(10px); opacity: 1; }
+    75% { opacity: 0.6; transform: translateX(90vw) translateY(-15px); }
+    100% { transform: translateX(110vw) translateY(0); opacity: 0; }
+}
+    .profile-img:hover {
+    filter: brightness(0.6);
+    cursor: pointer;
+    position: relative;
+}
+
+.profile-img:hover::after {
+    content: '303';
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    font-size: 24px;
+    color: #fff;
+}
+
+.profile-option {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    border: 2px solid #b30000;
+    border-radius: 12px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.profile-option:hover {
+    transform: scale(1.1);
+    border-color: crimson;
+}
+    .profile-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-img {
+    display: block;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    font-size: 30px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.profile-container:hover .edit-icon {
+    opacity: 1;
+}
