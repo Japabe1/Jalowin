@@ -213,22 +213,29 @@
     }
   }
 
-  function updateGhosts() {
-    for (const g of ghosts) {
-      if (g.stunned > 0) { g.stunned--; continue; }
-      const dx = player.x - g.x, dy = player.y - g.y;
-      const dirs = [{x:1,y:0},{x:-1,y:0},{x:0,y:1},{x:0,y:-1}];
-      let move = dirs[Math.floor(Math.random()*dirs.length)];
-      if (Math.abs(dx)+Math.abs(dy) < 6 && Math.random()<0.8) {
-        move = {x: Math.sign(dx), y: Math.sign(dy)};
-      }
-      let next = wrap(g.x + move.x, g.y + move.y);
-      if (canMove(next.x, next.y)) {
-        g.x = next.x; g.y = next.y;
-      }
-      const w = wrap(g.x, g.y); g.x = w.x; g.y = w.y;
+  // 👻 Fantasmas más lentos
+let ghostMoveCounter = 0;
+
+function updateGhosts() {
+  ghostMoveCounter++;
+  if (ghostMoveCounter % 2 !== 0) return; // solo se mueven cada 2 ticks
+
+  for (const g of ghosts) {
+    if (g.stunned > 0) { g.stunned--; continue; }
+    const dx = player.x - g.x, dy = player.y - g.y;
+    const dirs = [{x:1,y:0},{x:-1,y:0},{x:0,y:1},{x:0,y:-1}];
+    let move = dirs[Math.floor(Math.random()*dirs.length)];
+    if (Math.abs(dx)+Math.abs(dy) < 6 && Math.random()<0.8) {
+      move = {x: Math.sign(dx), y: Math.sign(dy)};
     }
+    let next = wrap(g.x + move.x, g.y + move.y);
+    if (canMove(next.x, next.y)) {
+      g.x = next.x; g.y = next.y;
+    }
+    const w = wrap(g.x, g.y); g.x = w.x; g.y = w.y;
   }
+}
+
 
   function checkCollisions() {
     for (const g of ghosts) {
