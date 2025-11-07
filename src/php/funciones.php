@@ -60,14 +60,14 @@ function createUser($username, $password) {
     }
     return false;
 }
-if (isset($_POST['register'])) {
-    $username = $_POST['new_username'];
-    $password = $_POST['new_password'];
 
+function registrarUsuario($username, $password) {
     if (createUser($username, $password)) {
-        echo "<script>alert('Usuario creado correctamente'); window.location.href='login.php';</script>";
+        return '<div class="alert alert-success text-center">Usuario creado correctamente. Ahora puedes iniciar sesión.</div>';
     } else {
-        echo "<script>alert('Error al crear el usuario'); window.location.href='register.php';</script>";
+        return '<div class="alert alert-danger text-center">Error al crear el usuario. Inténtalo de nuevo.</div>';
     }
 }
+
+
 ?>
