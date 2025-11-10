@@ -38,6 +38,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
 <title>Login / Registro</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/style/login.css">
+<style>
+    .btn-float {
+      background-color: #ff7b00;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 120, 0, 0.4);
+      transition: 0.2s;
+    }
+    .btn-float:hover {
+      background-color: #ffa733;
+      transform: scale(1.05);
+    }
+</style>
 </head>
 
 <body class="bg-dark d-flex justify-content-center align-items-center" style="height: 100vh;">
