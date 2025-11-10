@@ -68,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
             </form>
 
             <div class="text-center mt-3">
+                <a href="../../index.php" class="btn btn-float">🏠 Volver</a>
                 <button class="btn btn-danger" id="btnShowRegister">Registrarse</button>
             </div>
         </div>
