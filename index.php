@@ -27,8 +27,6 @@ if (isset($_POST['irALogin'])) {
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link text-warning" href="#inicio">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link text-warning" href="#seccion1">Historia</a></li>
-        <li class="nav-item"><a class="nav-link text-warning" href="#seccion2">Terror</a></li>
       </ul>
 
       <form method="POST">

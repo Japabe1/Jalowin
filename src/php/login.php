@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
             </form>
 
             <div class="text-center mt-3">
-                <button class="btn btn-link" id="btnShowLogin">← Volver</button>
+                <button class="btn btn-danger" id="btnShowLogin">Volver</button>
             </div>
         </div>
 
