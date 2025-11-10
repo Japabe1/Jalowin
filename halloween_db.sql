@@ -22,7 +22,10 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+CREATE DATABASE `halloween_db`;
 
+
+USE `halloween_db`;
 --
 -- Estructura de tabla para la tabla `game_scores`
 --
