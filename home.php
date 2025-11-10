@@ -17,9 +17,7 @@
         <div class="profile-container"><img src="https://img.icons8.com/emoji/96/skull-emoji.png" alt="profile" class="profile-img"><span class="edit-icon">✎</span></div>
         <h4 class="text-danger">Bienvenido</h4>
         <nav class="nav flex-column">
-            <a class="nav-link" href="#">🏚 Inicio</a>
-            <a class="nav-link" href="#">🧛 Juegos</a>
-            <a class="nav-link" href="#">⚙ Configuración</a>
+            <a class="nav-link" href="home.php">🏠 Home</a>
             <a class="nav-link" href="./src/php/logout.php">🔓 Logout</a>
         </nav>
     </aside>
